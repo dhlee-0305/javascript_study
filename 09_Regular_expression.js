@@ -33,3 +33,34 @@ const regexpTooGreedy = /\[.*\]/g;
 console.log(modifiedQuote.match(regexpTooGreedy));
 
 // 이스케이핑 : https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Regular_Expressions#%EC%9D%B4%EC%8A%A4%EC%BC%80%EC%9D%B4%ED%95%91
+function escapeRegExp(string){
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+console.log(escapeRegExp("abcABC123/\[{}]:;()"));
+
+const myRe = /d(b+)d/g;
+console.log(myRe.exec('cdbbdbsbz'));
+console.log('cdbbdbsbz'.match(myRe));
+
+const myRe2 = /d(b+)d/g;
+const myArray2 = myRe2.exec('cdbbdbsbz');
+console.log(`lastIndex의 값은 ${myRe2.lastIndex}`);
+
+const re = /\w+\s/g;
+const str = 'fee fi fo fum';
+console.log(str.match(re));
+
+const str2 = 'fee fi fo fum';
+const re2 = /\w+\s/g;
+console.log('------------------------');
+console.log(re2.exec(str2));
+console.log(re2.exec(str2));
+console.log(re2.exec(str2));
+console.log(re2.exec(str2));
+console.log('------------------------');
+console.log(str2.match(re2));
+
+
+
+
+
